@@ -29,12 +29,19 @@ class _ParseJsonFromApiState extends State<ParseJsonFromApi> {
   Future<List<Data>?> getDataJson() async{
     Uri url = Uri.parse("https://jsonplaceholder.typicode.com/posts");
     var response= await http.get(url);
+    var jsonData = json.decode(response.body);
 
     setState(() {
      data = json.decode(response.body.toString());
-      print(data);
     });
 
+    List<Data> items = [];
+    for(var xa in jsonData){
+      Data d = Data(xa["userId"],xa["id"],xa["title"],xa["body"]);
+      items.add(d);
+    }
+
+     return items;
   }
 
   @override  //this inisState method is called when page start
