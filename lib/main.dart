@@ -1,4 +1,5 @@
 import 'package:age_calculator/age_calculator.dart';
+import 'package:age_calculator/practices/parse_json_from_api.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const AgeCalculator(),
+      home: const ParseJsonFromApi(),
     );
   }
 }
